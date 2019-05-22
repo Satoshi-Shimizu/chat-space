@@ -6,10 +6,10 @@
         %p.side-header__box__user-name shimizu
         %ul.side-header__box__menu
           %li.side-header__box_mune__new-group
-            %a{:href => "/groups/new"}
+            %a{href: "/groups/new"}
               %i.fa.fa-edit.my-white.fa-fw
           %li.side-header__box_mune__edit-user
-            %a{:href => "/user/512/edit"}
+            %a{href: "/user/512/edit"}
               %i.fa.fa-cog.my-white.fa-fw
     .groups
       .group
@@ -32,12 +32,12 @@
           %p.message__upper-info__date 2019/05/18(Sat) 17:27:48
         %p.message__text ファsdファdf
     .form
-      %form#new_message.new_message{:action => "/groups/1017/messages", :method => "post"}
-        %input{:name => "utf8", :type => "hidden", :value =>"dummy︎"}
-        %input{:name => "authenticity_token", :type => "hidden", :value =>"dummy"}
+      %form#new_message.new_message{action: "/groups/1017/messages", method: "post"}
+        %input{name: "utf8", type: "hidden", value: "dummy︎"}
+        %input{name: "authenticity_token", type: "hidden", value: "dummy"}
         .input-box
-          %input#message_content.input-box__text{:name => "message[content]", :placeholder => "type a message", :type => "text"}
-          %label.input-box__image{:for => "message_image"}
+          %input#message_content.input-box__text{name: "message[content]", placeholder: "type a message",type: "text"}
+          %label.input-box__image{for: "message_image"}
             %i.fa.fa-image
-            %input#message_image.input-box__image__file{:name => "message[image]", :type => "file"}
-        %input.submit-btn{"data-disable-with" => "Send", :name => "commit", :type => "submit", :value => "Send"}
+            %input#message_image.input-box__image__file{name: "message[image]",type: "file"}
+        %input.submit-btn{"data-disable-with": "Send", name: "commit", type: "submit", value: "Send"}
