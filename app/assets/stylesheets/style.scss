@@ -14,39 +14,46 @@
   float:left;
   color:white;
   width:300px;
+
   .side-header {
     background-color: #253141;
     height: 100px;
     display: flex;
     align-items: center;
     padding: 0 20px;
-  }
-  .side-header__box {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    font-weight: bold;
-  }
-  .side-header__box__menu {
-    display: flex;
-  }
-  .side-header__box__menu__new-group {
-    margin-left: 0.3rem;
+
+    &__box {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      font-weight: bold;
+
+      &__menu {
+        display: flex;
+
+        &__new-group {
+          margin-left: 0.3rem;
+        }
+      }
+    }
   }
   .groups {
     height:calc(100vh - 100px);
     background-color: #2f3e51;
     padding: 20px 20px 0;
     overflow: scroll;
+
     .group {
       margin-bottom: 40px;
-    }
-    .group__group-name {
-      font-size: 15px;
-      margin-bottom: 5px;
-    }
-    .group__latest-message {
-      font-size: 11px;
+    
+      &__group-name {
+        font-size: 15px;
+        margin-bottom: 5px;
+      }
+    
+      &__latest-message {
+        font-size: 11px;
+      }
     }
   }
 }
@@ -70,6 +77,7 @@ $message__upper_char-color-black: #434a54;
 .chat-main {
   width: calc(100vw - 300px);
   float:left;
+
   .main-header {
     height: 100px;
     padding:0 40px;
@@ -80,84 +88,100 @@ $message__upper_char-color-black: #434a54;
     a {
       color: $chat-main__parts-color-bule;
     }
-  }
-  .main-header__left-box {
-    margin-top: 35px;
-  }
-  .main-header__left-box__current-group {
-    font-size: 20px;
-    color: #333;
-    margin-bottom: 15px;
-  }
-  .main-header__left-box__member-list {
-    display: flex;
-    font-size: 12px;
-    color: $main-header__char-color-grey;
-  }
-  .main-header__edit-btn {
-    height: 40px;
-    line-height:40px;
-    padding: 0 20px;
-    margin-top: 30px;
-    border: solid 1px $chat-main__parts-color-bule;
-    position: absolute;
-    right: 40px;
+  
+    &__left-box {
+      margin-top: 35px;
+  
+      &__current-group {
+        font-size: 20px;
+        color: #333;
+        margin-bottom: 15px;
+      }
+  
+      &__member-list {
+        display: flex;
+        font-size: 12px;
+        color: $main-header__char-color-grey;
+      }
+    }
+  
+    &__edit-btn {
+      height: 40px;
+      line-height:40px;
+      padding: 0 20px;
+      margin-top: 30px;
+      border: solid 1px $chat-main__parts-color-bule;
+      position: absolute;
+      right: 40px;
+    }  
   }
   .messages {
     height: calc(100vh - 190px);
     padding: 46px 40px;
     background-color: #fafafa;
     overflow: scroll;
+  
     .message {
       padding-bottom: 40px;
-    }
-    .message__upper-info {
-      display: flex;
-      margin-bottom: 10px;
-    }
-    .message__upper__talker {
-      color: $message__upper_char-color-black;
-      font-size: 16px;
-      font-weight: bold;
-    }
-    .message__upper-info__date {
-      color: $main-header__char-color-grey;
-      font-size: 12px;
-      margin-left: 10px;
-    }
-    .message__text {
-      color: $message__upper_char-color-black;
-      font-size:14px;
-      margin-bottom:10px;
+  
+      &__upper-info {
+        display: flex;
+        margin-bottom: 10px;
+      }
+  
+      &__upper__talker {
+        color: $message__upper_char-color-black;
+        font-size: 16px;
+        font-weight: bold;
+      }
+  
+      &__upper-info__date {
+        color: $main-header__char-color-grey;
+        font-size: 12px;
+        margin-left: 10px;
+      }
+  
+      &__text {
+        color: $message__upper_char-color-black;
+        font-size:14px;
+        margin-bottom:10px;
+      }
     }
   }
+  
   .form {
     height: 90px;
     padding: 20px 40px;
     background-color:#ddd;
+  
     form {
       display:flex;
+  
       .input-box {
         position: relative;
         width: 100%;
+  
+        &__text {
+          height:50px;
+          width:100%;
+          padding:0 40px 0 10px;
+          color: #434a54;
+          border-style: none;
+        }
+  
+        &__image {
+          font-size: 1.3rem;
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          cursor: pointer;
+  
+          &__file {
+            display: none;
+          }
+        }
       }
-      .input-box__text {
-        height:50px;
-        width:100%;
-        padding:0 40px 0 10px;
-        color: #434a54;
-        border-style: none;
-      }
-      .input-box__image {
-        font-size: 1.3rem;
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        cursor: pointer;
-      }
-      .input-box__image__file {
-        display: none;
-      }
+  
       .submit-btn {
         width: 100px;
         height: 50px;
