@@ -6,10 +6,10 @@
         %p.side-header__box__user-name shimizu
         %ul.side-header__box__menu
           %li.side-header__box_mune__new-group
-            %a{href: "/groups/new"}
+            = link_to '#' do
               %i.fa.fa-edit.my-white.fa-fw
           %li.side-header__box_mune__edit-user
-            %a{href: "/user/512/edit"}
+            = link_to '#' do
               %i.fa.fa-cog.my-white.fa-fw
     .groups
       .group
@@ -23,7 +23,7 @@
           Member：
           %li.main-header__left-box__member-list__member aaaa
           %li.main-header__left-box__member-list__member shimizu
-      = link_to 'groups/1030/edit' do
+      = link_to '#' do
         .main-header__edit-btn Edit
     .messages
       .message
@@ -32,7 +32,7 @@
           %p.message__upper-info__date 2019/05/18(Sat) 17:27:48
         %p.message__text ファsdファdf
     .form
-      %form#new_message.new_message{action: "/groups/1017/messages", method: "post"}
+      %form#new_message.new_message{action: "#" method: "post"}
         %input{name: "utf8", type: "hidden", value: "dummy︎"}
         %input{name: "authenticity_token", type: "hidden", value: "dummy"}
         .input-box
