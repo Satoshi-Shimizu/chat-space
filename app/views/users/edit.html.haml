@@ -3,6 +3,7 @@
     .account-page__inner--left.account-page__header
       %h2 Edit Account
       %h5 アカウントの編集
+      = render "users/shared/links"
     .account-page__inner--right.user-form
       = form_for(current_user) do |f|
         .field
