@@ -58,3 +58,9 @@ gem 'erb2haml'
 
 # fontawesome
 gem 'font-awesome-sass', '~> 5.2.0'
+
+# fontawesome
+gem 'font-awesome-sass', '~> 5.2.0'
+
+# devise
+gem 'devise'
