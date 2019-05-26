@@ -9,7 +9,7 @@
             = link_to '#' do
               %i.fa.fa-edit.my-white.fa-fw
           %li.side-header__box_mune__edit-user
-            = link_to '#' do
+            = link_to "/users/#{current_user.id}/edit", method: :get do
               %i.fa.fa-cog.my-white.fa-fw
     .groups
       .group
