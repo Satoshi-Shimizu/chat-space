@@ -30,7 +30,9 @@
       justify-content: space-between;
       width: 100%;
       font-weight: bold;
-
+      &__user-name {
+        display: inline-block;
+      }
       &__menu {
         display: flex;
 
@@ -45,7 +47,6 @@
     background-color: #2f3e51;
     padding: 20px 20px 0;
     overflow: scroll;
-
     .group {
       margin-bottom: 40px;
     
