@@ -9,3 +9,11 @@
       %li.side-header__box_mune__edit-user
         = link_to edit_user_path(current_user), method: :get do
           %i.fa.fa-cog.my-white.fa-fw
+.groups
+  .group
+    - current_user.groups.each do |group|
+      = link_to group_messages_path(group) do 
+        .group_name
+          = group.name
+        .group_message
+          'No message'
