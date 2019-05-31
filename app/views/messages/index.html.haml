@@ -15,21 +15,12 @@
       = link_to edit_group_path(current_user) do
         .main-header__edit-btn Edit
     .messages
-      - @messages.each do |m|
-        .message
-          .message__upper-info
-            %p.message__upper__talker
-              = m.user.name
-            %p.message__upper-info__date
-              = m.created_at
-          %p.message__text
-            = m.message
-            = image_tag m.image
+      = render partial: 'messages/message', collection: @messages
     .form
       = form_for [@group, @message] do |f|
         .input-box
           = f.text_field :message, class: 'message_content input-box__text', placeholder: "type a message"
           = f.label :image, class: 'message_image input-box__image'
           %i.fa.fa-image
-            =f.file_field :image, class: 'message_image input-box__image__file'
-        = f.submit class: 'submit-btn'
+          = f.file_field :image, class: 'message_image input-box__image__file'
+        = f.submit 'Send', class: 'submit-btn'
