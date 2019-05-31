@@ -1,15 +1,17 @@
 .flash-box
 .wrapper
   .chat-side
-    = render "side_ber" 
+    = render "groups/side_ber" 
   .chat-main
     .main-header
       .main-header__left-box
-        %h2.main-header__left-box__current-group fasaf
+        %h2.main-header__left-box__current-group
+        = @group.name
         %ul.main-header__left-box__member-list
           Member：
-          %li.main-header__left-box__member-list__member aaaa
-          %li.main-header__left-box__member-list__member shimizu
+          - @group.users.each do |user|
+            %li.main-header__left-box__member-list__member
+            = user.name
       = link_to edit_group_path(current_user) do
         .main-header__edit-btn Edit
     .messages
