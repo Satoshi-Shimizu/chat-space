@@ -39,6 +39,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
   gem 'pry-byebug'
+  gem 'rspec-rails'
 end
 
 
@@ -66,3 +67,9 @@ gem 'font-awesome-sass', '~> 5.2.0'
 
 # devise
 gem 'devise'
+
+#carrierwave
+gem 'carrierwave'
+
+# image resize
+gem 'mini_magick'
