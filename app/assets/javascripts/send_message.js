@@ -27,13 +27,11 @@ $(function(){
                     <p class="message__upper-info__date">${datetime}</p>
                   </div>`;
 
-    if(message.url == null){
-      var image_html = `<p class="message__text">${message.message}</p></div>`;
-    }else{
-      var image_html = `<p class="message__text">${message.message}<img src="${message.url}"></p></div>`;
-    }
-    html = html + image_html;
-    return html;
+    var message_start = `<p class="message__text">`;
+    var image_code = `<img src="${message.url}">`;
+    var message_end = `${message.message}</p></div>`;
+    message.url == null? add_html = message_start + message_end: add_html = message_start + image_code + message_end;
+    return html + add_html;
   }
 
   $('.btn-top').click(function() {
