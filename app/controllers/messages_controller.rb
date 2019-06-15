@@ -4,19 +4,20 @@ class MessagesController < ApplicationController
   def index
     @messages = Message.where(group_id: @group.id)
     @message = Message.new
-    #binding.pry
   end
 
   def create
     @message = Message.create(create_params)
     if @message.save
-      redirect_to group_messages_path, notice:'creat New message!!'
+      respond_to do |f|
+        f.html { redirect_to group_messages_path, notice:'creat New message!!' }
+        f.json
+      end
     else
       @messages = @group.messages.includes(:user)
       flash.now[:alert] = 'メッセージを入力してください。'
       render :index
     end
-    #binding.pry
   end
 
   private 

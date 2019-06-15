@@ -80,7 +80,7 @@ $main-header__char-color-grey: #999999;
 $message__upper_char-color-black: #434a54;
 .chat-main {
   width: calc(100vw - 300px);
-  float:left;
+  float: left;
 
   .main-header {
     height: 100px;
@@ -88,7 +88,7 @@ $message__upper_char-color-black: #434a54;
     display: flex;
     justify-content: space-between;
     border-bottom: solid 1px #eee;
-    overflow: scroll;
+    
     a {
       color: $chat-main__parts-color-bule;
     }
@@ -119,12 +119,12 @@ $message__upper_char-color-black: #434a54;
       right: 40px;
     }  
   }
+}
   .messages {
-    height: calc(100vh - 190px);
     padding: 46px 40px;
     background-color: #fafafa;
     overflow: scroll;
-  
+    height: calc(100vh - 190px);
     .message {
       padding-bottom: 40px;
   
@@ -197,11 +197,23 @@ $message__upper_char-color-black: #434a54;
       }
     }
   }
-}
 
 .fa {
   display: inline-block;
   font: normal normal normal 14px/1 FontAwesome;
   font-size: inherit;
   text-rendering: auto;
+}
+
+
+.btn-top {
+  margin: 0 auto;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  background-color: #fafafa;
+  box-shadow: 0px 0px 4px 0px #aaa;
+  border-radius: 50%;
+  font-size: 1rem;
 }
