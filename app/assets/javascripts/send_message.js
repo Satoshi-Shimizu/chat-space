@@ -70,9 +70,8 @@ $(function(){
       var html = buildHTML(data);
       var speed = 1000;
       $('.messages').append(html);
-      $('#message_message').val('');
+      $('#new_message')[0].reset();
       $(".messages").animate({scrollTop: $(".messages")[0].scrollHeight}, speed);
-     
     })
     .fail(function(){
       alert('Error:通信に失敗しました。再度メッセージを入力下さい');
