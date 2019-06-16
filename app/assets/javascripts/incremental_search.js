@@ -2,7 +2,7 @@ $(function(){
 
   var search_list = $("#user-search-result");
 
-  function addMemberBuildHTML(user_id, user_name){
+  function addMemberHTML(user_id, user_name){
     var html = `<div class='chat-group-user clearfix js-chat-member' id='chat-group-user-${user_id}'>
                   <input name='group[user_ids][]' type='hidden' value='${user_id}'>
                   <p class='chat-group-user__name'>${user_name}</p>
@@ -11,7 +11,7 @@ $(function(){
     $('.chat-group-users').append(html);
   }
 
-  function addUsersBhildHTML(user){
+  function addUsersHTML(user){
     var html = `<div class="chat-group-user clearfix" id='add-chat-group-user-${user.id}'>
                   <p class="chat-group-user__name">${user.name}</p>
                   <a class="user-search-add chat-group-user__btn chat-group-user__btn--add" data-user-id="${user.id}" data-user-name="${user.name}">追加
@@ -23,7 +23,7 @@ $(function(){
   $('body').on("click", "a", function(){
     var user_id = $(this).attr('data-user-id');
     var user_name = $(this).attr('data-user-name');
-    addMemberBuildHTML(user_id, user_name);
+    addMemberHTML(user_id, user_name);
     $(this).parent().remove();
   });
 
@@ -43,9 +43,10 @@ $(function(){
         dataType: 'json'
       })
       .done(function(users){
-        if( users.leght !== 0 ) {
+        if( users.length != 0 ) {
+          console.log(users.leght);
           users.forEach(function(user){
-            addUsersBhildHTML(user);
+            addUsersHTML(user);
           });
         }
       })
