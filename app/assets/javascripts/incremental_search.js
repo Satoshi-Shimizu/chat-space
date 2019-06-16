@@ -33,7 +33,6 @@ $(function(){
 
   $('#user-serch-field').on('keyup', function() {
     var input = $('#user-serch-field').val();
-
     if ( input == ""){
       $('#user-search-result').children().remove();
     }else{
