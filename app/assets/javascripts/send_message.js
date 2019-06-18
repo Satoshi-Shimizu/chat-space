@@ -1,4 +1,3 @@
-
 $(function(){
     // 処理キャンセルのフラグを定義：0…処理可能　1…キャンセル
     var cancelFlag = 0;
@@ -21,7 +20,7 @@ $(function(){
  
   function buildHTML(message){
     var datetime = dateToStr24HPad0DayOfWeek(message.created_at, 'YYYY/MM/DD(WW) hh:mm:ss');
-    var html = `<div class="message">
+    var html = `<div class="message" data-message-id="${message.id}">
                   <div class="message__upper-info">
                     <p class="message__upper__talker">${message.name}</p>
                     <p class="message__upper-info__date">${datetime}</p>
@@ -33,6 +32,57 @@ $(function(){
     message.url == null? add_html = message_start + message_end: add_html = message_start + image_code + message_end;
     return html + add_html;
   }
+
+  var buildMessageHTML = function(message) {
+
+    var datetime = dateToStr24HPad0DayOfWeek(message.created_at, 'YYYY/MM/DD(WW) hh:mm:ss');
+
+    var start_html = 
+    `<div class="message" data-message-id=${message.id} >
+       <div class="message__upper-info">
+         <div class="message__upper__talker">${message.user_name}</div>
+         <div class="message__upper-info__date">${datetime}</div> 
+       </div>
+     </div>`;
+
+    if (message.message && message.image.url) {
+        var add_html = 
+          `<p class="message__text">${message.message}<img src="${message.image.url}"></p>`;
+    } else if (message.message) {
+      var add_html = 
+          `<p class="message__text">${message.message}</p>`;
+    } else if (message.image.url) {
+      var add_html =
+          `<img src="${message.image.url}" >`;
+    };
+    return start_html + add_html;
+  };
+
+  setInterval(function(){
+    var last_message_id = $('.message:last').attr('data-message-id');
+    var str = $(location).attr('pathname');
+    var url = str.replace('/messages', '');
+    url = url + '/api/messages';
+
+    $.ajax({
+      url: url,
+      type: 'GET',
+      dataType: 'json',
+      data: { id: last_message_id }
+    })
+    .done(function(messages) {
+      var insertHTML = '';
+      var speed = 1000;
+      $.each(messages, function(index,message){
+        insertHTML += buildMessageHTML(message);
+      })
+      $('.messages').append(insertHTML);
+      $(".messages").animate({scrollTop: $(".messages")[0].scrollHeight}, speed);
+    })
+    .fail(function() {
+      alert('Error:通信に失敗しました。リロードして下さい');
+    })
+  },5000);
 
   $('.btn-top').click(function() {
     $('.messages').animate({scrollTop: 0}, 500, 'swing');
