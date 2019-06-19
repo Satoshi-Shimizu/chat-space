@@ -45,15 +45,12 @@ $(function(){
        </div>
      </div>`;
 
-    if (message.message && message.image.url) {
+    if (message.image.url) {
         var add_html = 
           `<p class="message__text">${message.message}<img src="${message.image.url}"></p>`;
-    } else if (message.message) {
+    } else {
       var add_html = 
           `<p class="message__text">${message.message}</p>`;
-    } else if (message.image.url) {
-      var add_html =
-          `<img src="${message.image.url}" >`;
     };
     return start_html + add_html;
   };
@@ -61,8 +58,12 @@ $(function(){
   setInterval(function(){
     var last_message_id = $('.message:last').attr('data-message-id');
     var str = $(location).attr('pathname');
-    var url = str.replace('/messages', '');
-    url = url + '/api/messages';
+    if(str.match(/groups/)){
+      var url = str.replace('/messages', '');
+      url = url + '/api/messages';
+    }
+
+    if( url === undefined || last_message_id === undefined ) return;
 
     $.ajax({
       url: url,
