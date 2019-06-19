@@ -44,7 +44,6 @@ $(function(){
       })
       .done(function(users){
         if( users.length != 0 ) {
-          console.log(users.leght);
           users.forEach(function(user){
             addUsersHTML(user);
           });
