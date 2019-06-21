@@ -17,4 +17,4 @@
 .byebug_history
 
 # Ignore Image file
-public/uploads/*
+# public/uploads/*
