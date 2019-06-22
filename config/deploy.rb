@@ -12,7 +12,7 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', '
 set :rbenv_type, :user
 set :rbenv_ruby, '2.5.1'
 set :ssh_options, auth_methods: ['publickey'],
-                  keys: [' ~/.ssh/irs_for_aws_ec2.pem']
+                  keys: ['~/.ssh/irs_for_aws_ec2.pem']
 set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
 set :unicorn_config_path, -> { "#{current_path}/config/unicorn.rb" }
 set :keep_releases, 5
