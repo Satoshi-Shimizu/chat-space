@@ -86,3 +86,6 @@ gem 'carrierwave'
 
 # image resize
 gem 'mini_magick'
+
+# fog
+gem 'fog-aws'
