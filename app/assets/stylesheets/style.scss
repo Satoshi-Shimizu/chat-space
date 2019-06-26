@@ -106,6 +106,9 @@ $message__upper_char-color-black: #434a54;
         display: flex;
         font-size: 12px;
         color: $main-header__char-color-grey;
+        &__member {
+          padding-left: 5px;
+        }
       }
     }
   
